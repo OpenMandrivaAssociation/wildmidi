@@ -4,7 +4,7 @@
 
 Name: wildmidi
 Version: 0.2.2
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -43,6 +43,7 @@ This package contains library files for wildmidi
 Summary: Development files for wildmidi
 Group: Development/Other
 Requires: %libname = %version
+Provides: %name-devel = %version
 
 %description -n %develname
 This package contains development files for wildmidi
