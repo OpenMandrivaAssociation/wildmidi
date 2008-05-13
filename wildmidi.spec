@@ -4,7 +4,7 @@
 
 Name: wildmidi
 Version: 0.2.2
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
