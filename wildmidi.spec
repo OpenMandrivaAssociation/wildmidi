@@ -11,6 +11,9 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPLv2+
 URL: http://wildmidi.sourceforge.net
 Source:	http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
+Patch0: wildmidi-0.2.2-opt.patch
+Patch1: wildmidi-0.2.2-cfg-abs-path.patch
+Patch2: wildmidi-0.2.2-pulseaudio.patch
 BuildRequires: timidity-instruments
 BuildRequires: libalsa-devel
 Requires: timidity-instruments
@@ -59,6 +62,9 @@ This package contains development files for wildmidi
 #------------------------------------------------------------------------------------------------
 %prep
 %setup -q -n %name-%version
+%patch0 -p1 -b .opt
+%patch1 -p1 -b .abs
+%patch2 -p1 -b .pa
 
 %build
 %configure2_5x --disable-werror --with-timidity-cfg=/etc/timidity/timidity.cfg
