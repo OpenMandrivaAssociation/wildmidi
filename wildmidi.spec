@@ -64,6 +64,7 @@ This package contains development files for wildmidi
 %patch0 -p1 -b .opt
 %patch1 -p1 -b .abs
 %patch2 -p1 -b .pa
+libtoolize --copy --force
 
 %build
 %configure2_5x --disable-static --without-arch \
