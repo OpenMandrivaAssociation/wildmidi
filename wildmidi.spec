@@ -56,7 +56,6 @@ This package contains development files for wildmidi
 %defattr(-,root,root,-)
 %{_libdir}/*.so
 %{_libdir}/*.la
-%{_libdir}/*.a
 %{_includedir}/*.h
 
 #------------------------------------------------------------------------------------------------
