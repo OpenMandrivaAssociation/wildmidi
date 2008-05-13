@@ -67,7 +67,8 @@ This package contains development files for wildmidi
 %patch2 -p1 -b .pa
 
 %build
-%configure2_5x --disable-werror --with-timidity-cfg=/etc/timidity/timidity.cfg
+%configure2_5x --disable-static --without-arch \
+	--disable-werror --with-timidity-cfg=/etc/timidity/timidity.cfg
 %make
 
 %install
