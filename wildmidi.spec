@@ -4,7 +4,7 @@
 
 Name: wildmidi
 Version: 0.2.2
-Release: %mkrel 4
+Release: %mkrel 5
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -14,6 +14,7 @@ Source:	http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
 Patch0: wildmidi-0.2.2-opt.patch
 Patch1: wildmidi-0.2.2-cfg-abs-path.patch
 Patch2: wildmidi-0.2.2-pulseaudio.patch
+Patch3: wildmidi-0.2.2-fix-default-config-location.patch
 BuildRequires: timidity-instruments
 BuildRequires: libalsa-devel
 Requires: timidity-instruments
@@ -64,6 +65,7 @@ This package contains development files for wildmidi
 %patch0 -p1 -b .opt
 %patch1 -p1 -b .abs
 %patch2 -p1 -b .pa
+%patch3 -p1 -b .defconfig
 
 %build
 %configure2_5x --disable-static --without-arch \
