@@ -35,8 +35,12 @@ Group: System/Libraries
 %description -n %libname
 This package contains library files for wildmidi
 
+%if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
+%endif
+%if %mdkversion < 200900
 %postun -n %libname -p /sbin/ldconfig
+%endif
 
 %files -n %libname
 %defattr(-,root,root,-)
