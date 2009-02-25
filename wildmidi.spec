@@ -8,7 +8,9 @@ Release: %mkrel 6
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-License: GPLv2+
+#gw the lib is LGPL, the main program is GPL
+# 0.2.3 will go GPL3!
+License: LGPLv2+ and GPLv2+
 URL: http://wildmidi.sourceforge.net
 Source:	http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
 Patch0: wildmidi-0.2.2-opt.patch
