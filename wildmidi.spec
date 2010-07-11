@@ -1,22 +1,20 @@
-%define major 0
+%define major 1
 %define libname %mklibname %name %major
 %define develname %mklibname -d %name
 
 Name: wildmidi
-Version: 0.2.2
-Release: %mkrel 7
+Version: 0.2.3.3
+Release: %mkrel 1
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-#gw the lib is LGPL, the main program is GPL
-# 0.2.3 will go GPL3!
-License: LGPLv2+ and GPLv2+
+License: GPLv3+ and LGPLv3+
 URL: http://wildmidi.sourceforge.net
 Source:	http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
-Patch0: wildmidi-0.2.2-opt.patch
-Patch1: wildmidi-0.2.2-cfg-abs-path.patch
-Patch2: wildmidi-0.2.2-pulseaudio.patch
-Patch3: wildmidi-0.2.2-fix-default-config-location.patch
+#Patch0: wildmidi-0.2.2-opt.patch
+#Patch1: wildmidi-0.2.2-cfg-abs-path.patch
+#Patch2: wildmidi-0.2.2-pulseaudio.patch
+Patch3: wildmidi-0.2.3.3-fix-default-config-location.patch
 BuildRequires: timidity-instruments
 BuildRequires: libalsa-devel
 Requires: timidity-instruments
@@ -26,8 +24,10 @@ WildMidi is a software midi play which has a core softsynth library that can be 
 
 %files
 %defattr(-,root,root,-)
-%doc README TODO changelog
 %{_bindir}/%{name}
+%{_mandir}/man1/%{name}.1*
+%{_mandir}/man5/%{name}.cfg.5*
+%{_docdir}/%{name}/GPLv3.txt
 
 #------------------------------------------------------------------------------------------------
 %package -n %libname
@@ -59,28 +59,34 @@ Provides: %name-devel = %version
 This package contains development files for wildmidi
 
 %files -n %develname
-%doc TODO changelog
 %defattr(-,root,root,-)
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_includedir}/*.h
+%{_mandir}/man3/*.3*
+%{_docdir}/%{name}/LGPLv3.txt
 
 #------------------------------------------------------------------------------------------------
 %prep
 %setup -q -n %name-%version
-%patch0 -p1 -b .opt
-%patch1 -p1 -b .abs
-%patch2 -p1 -b .pa
-%patch3 -p1 -b .defconfig
+#%patch0 -p1 -b .opt
+#%patch1 -p1 -b .abs
+#%patch2 -p1 -b .pa
+%patch3 -p0 -b .defconfig
 
 %build
-%configure2_5x --disable-static --without-arch \
-	--disable-werror --with-timidity-cfg=/etc/timidity/timidity.cfg
+%configure2_5x --disable-static \
+		--without-arch \
+		--disable-werror
 %make
 
 %install
 rm -rf %buildroot
 %makeinstall_std
+
+#install doc files
+mkdir -p %{buildroot}%{_datadir}/doc/%{name}
+install -p docs/*v3.txt %{buildroot}%{_datadir}/doc/%{name}
 
 %clean
 rm -rf %buildroot
