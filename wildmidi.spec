@@ -3,7 +3,7 @@
 %define develname %mklibname -d %name
 
 Name: wildmidi
-Version: 0.2.3.3
+Version: 0.2.3.4
 Release: %mkrel 1
 Summary: WildMidi Open Source Midi Sequencer
 Group: Sound
@@ -11,10 +11,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 License: GPLv3+ and LGPLv3+
 URL: http://wildmidi.sourceforge.net
 Source:	http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
-#Patch0: wildmidi-0.2.2-opt.patch
-#Patch1: wildmidi-0.2.2-cfg-abs-path.patch
-#Patch2: wildmidi-0.2.2-pulseaudio.patch
-Patch3: wildmidi-0.2.3.3-fix-default-config-location.patch
+Patch3: wildmidi-0.2.3.4-fix-default-config-location.patch
 BuildRequires: timidity-instruments
 BuildRequires: libalsa-devel
 Requires: timidity-instruments
