@@ -60,7 +60,9 @@ This package contains development files for wildmidi
 %configure2_5x --disable-static \
 		--without-arch \
 		--disable-werror
-%make
+
+# parallel build fails, so we don't use it
+make
 
 %install
 %makeinstall_std
