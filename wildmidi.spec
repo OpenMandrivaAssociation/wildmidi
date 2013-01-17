@@ -16,7 +16,8 @@ BuildRequires:	pkgconfig(alsa)
 Requires:	timidity-instruments
 
 %description
-WildMidi is a software midi play which has a core softsynth library that can be use with other applications.
+WildMidi is a software midi play which has a core softsynth
+library that can be use with other applications.
 
 %files
 %doc docs/*v3.txt
