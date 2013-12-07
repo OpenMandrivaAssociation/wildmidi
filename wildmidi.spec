@@ -4,7 +4,7 @@
 
 Name:		wildmidi
 Version:	0.2.3.5
-Release:	5
+Release:	6
 Summary:	Open Source Midi Sequencer
 Group:		Sound
 License:	GPLv3+ and LGPLv3+
