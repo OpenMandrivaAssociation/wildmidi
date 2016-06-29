@@ -20,7 +20,6 @@ WildMidi is a software midi play which has a core softsynth
 library that can be use with other applications.
 
 %files
-%doc docs/*v3.txt
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 %{_mandir}/man5/%{name}.cfg.5*
