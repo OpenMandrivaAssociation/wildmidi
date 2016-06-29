@@ -1,17 +1,17 @@
-%define major 1
+%define major 2
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
 
 Name:		wildmidi
-Version:	0.2.3.5
-Release:	15
+Version:	0.4.0
+Release:	1
 Summary:	Open Source Midi Sequencer
 Group:		Sound
 License:	GPLv3+ and LGPLv3+
 URL:		http://wildmidi.sourceforge.net
-Source:		http://dfn.dl.sourceforge.net/sourceforge/wildmidi/%name-%version.tar.gz
-Patch0:		wildmidi-0.2.3.4-fix-default-config-location.patch
-BuildRequires:	timidity-instruments
+Source0:	https://github.com/Mindwerks/wildmidi/archive/%name-%version.tar.gz
+#Patch0:		wildmidi-0.2.3.4-fix-default-config-location.patch
+#BuildRequires:	timidity-instruments
 BuildRequires:	pkgconfig(alsa)
 Requires:	timidity-instruments
 
@@ -53,81 +53,13 @@ This package contains development files for wildmidi
 
 #------------------------------------------------------------------------------------------------
 %prep
-%setup -q
-%patch0 -p0 -b .defconfig
+%setup -qn %{name}-%{name}-%{version}
+%apply_patches
 
 %build
-%configure2_5x --disable-static \
-		--without-arch \
-		--disable-werror
-
+%cmake
 # parallel build fails, so we don't use it
-make
+%make
 
 %install
-%makeinstall_std
-
-
-
-%changelog
-* Sat Aug 18 2012 Andrey Bondrov <abondrov@mandriva.org> 0.2.3.5-2
-+ Revision: 815309
-- Update files
-- Don't use parallel build as it fails
-- New version 0.2.3.5, spec cleanup
-
-* Fri Jul 30 2010 Funda Wang <fwang@mandriva.org> 0.2.3.4-1mdv2011.0
-+ Revision: 563742
-- new version 0.2.3.4
-
-* Sun Jul 11 2010 Emmanuel Andry <eandry@mandriva.org> 0.2.3.3-1mdv2011.0
-+ Revision: 550959
-- New version 0.2.3.3
-- New major 1
-- drop p0, p1, p2
-- rediff p3
-- update files list
-
-* Sun Sep 20 2009 Thierry Vignaud <tv@mandriva.org> 0.2.2-7mdv2010.0
-+ Revision: 445782
-- rebuild
-
-* Wed Feb 25 2009 Götz Waschk <waschk@mandriva.org> 0.2.2-6mdv2009.1
-+ Revision: 344624
-- update license
-
-* Sat Aug 09 2008 Thierry Vignaud <tv@mandriva.org> 0.2.2-6mdv2009.0
-+ Revision: 269681
-- rebuild early 2009.0 package (before pixel changes)
-
-  + Pixel <pixel@mandriva.com>
-    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
-
-* Wed May 14 2008 Funda Wang <fwang@mandriva.org> 0.2.2-5mdv2009.0
-+ Revision: 206986
-- display correct default config file
-
-* Wed May 14 2008 Funda Wang <fwang@mandriva.org> 0.2.2-4mdv2009.0
-+ Revision: 206917
-- drop libtoolize
-- update abspath patch with ubuntu one
-
-  + Götz Waschk <waschk@mandriva.org>
-    - run libtoolize to fix build
-
-* Tue May 13 2008 Funda Wang <fwang@mandriva.org> 0.2.2-3mdv2009.0
-+ Revision: 206556
-- drop static lib file
-- disable arch specific optimizations
-- add fedora patch to fix bug#40640:
-    does not recognize absolute configure path
-
-* Sun May 11 2008 Funda Wang <fwang@mandriva.org> 0.2.2-2mdv2009.0
-+ Revision: 205607
-- virtual provides for devel package
-
-* Fri May 09 2008 Funda Wang <fwang@mandriva.org> 0.2.2-1mdv2009.0
-+ Revision: 205311
-- import source and spec
-- Created package structure for wildmidi.
-
+%makeinstall_std -C build
