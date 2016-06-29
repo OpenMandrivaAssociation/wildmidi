@@ -11,8 +11,8 @@ License:	GPLv3+ and LGPLv3+
 URL:		http://wildmidi.sourceforge.net
 Source0:	https://github.com/Mindwerks/wildmidi/archive/%name-%version.tar.gz
 #Patch0:		wildmidi-0.2.3.4-fix-default-config-location.patch
-#BuildRequires:	timidity-instruments
 BuildRequires:	pkgconfig(alsa)
+BuildRequires:	cmake
 Requires:	timidity-instruments
 
 %description
