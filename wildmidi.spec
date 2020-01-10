@@ -54,7 +54,7 @@ This package contains development files for wildmidi
 #------------------------------------------------------------------------------------------------
 %prep
 %setup -qn %{name}-%{name}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 %cmake
