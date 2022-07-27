@@ -49,6 +49,7 @@ This package contains development files for wildmidi
 %{_libdir}/*.so
 %{_includedir}/*.h
 %{_libdir}/pkgconfig/wildmidi.pc
+%{_libdir}/cmake/WildMidi/
 %{_mandir}/man3/*.3*
 
 #------------------------------------------------------------------------------------------------
@@ -62,4 +63,4 @@ This package contains development files for wildmidi
 %make
 
 %install
-%makeinstall_std -C build
+%make_install -C build
