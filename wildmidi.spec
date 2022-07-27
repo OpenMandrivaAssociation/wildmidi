@@ -3,13 +3,13 @@
 %define develname %mklibname -d %{name}
 
 Name:		wildmidi
-Version:	0.4.3
+Version:	0.4.4
 Release:	1
 Summary:	Open Source Midi Sequencer
 Group:		Sound
 License:	GPLv3+ and LGPLv3+
 URL:		http://wildmidi.sourceforge.net
-Source0:	https://github.com/Mindwerks/wildmidi/archive/wildmidi-%{version}.tar.gz
+Source0:	https://github.com/Mindwerks/wildmidi/archive/wildmidi-wildmidi-%{version}.tar.gz
 #Patch0:		wildmidi-0.2.3.4-fix-default-config-location.patch
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	cmake
