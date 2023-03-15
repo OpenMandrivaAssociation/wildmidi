@@ -3,7 +3,7 @@
 %define develname %mklibname -d %{name}
 
 Name:		wildmidi
-Version:	0.4.4
+Version:	0.4.5
 Release:	1
 Summary:	Open Source Midi Sequencer
 Group:		Sound
