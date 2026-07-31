@@ -4,13 +4,13 @@
 
 Summary:	Open Source Midi Sequencer
 Name:	wildmidi
-Version:	0.4.6
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	GPLv3+ and LGPLv3+
 Group:	Sound
 Url:	https://wildmidi.sourceforge.net
 Source0:	https://github.com/Mindwerks/wildmidi/archive/%{name}-%{name}-%{version}.tar.gz
-Patch0:	wildmidi-0.4.6-bump-minimum-cmake-version.patch
+# dropped (no longer applies): Patch0:	wildmidi-0.5.0-bump-minimum-cmake-version.patch
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(openal)
@@ -61,7 +61,7 @@ This package contains development files for wildmidi.
 #------------------------------------------------------------------------------------------------
 
 %prep
-%autosetup p1 -n %{name}-%{name}-%{version}
+%autosetup p1 -n wildmidi-wildmidi-0.5.0
 
 
 %build
