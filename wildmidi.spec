@@ -11,6 +11,7 @@ Group:	Sound
 Url:	https://wildmidi.sourceforge.net
 Source0:	https://github.com/Mindwerks/wildmidi/archive/%{name}-%{name}-%{version}.tar.gz
 # dropped (no longer applies): Patch0:	wildmidi-0.5.0-bump-minimum-cmake-version.patch
+BuildRequires:	make
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(alsa)
 BuildRequires:	pkgconfig(openal)
